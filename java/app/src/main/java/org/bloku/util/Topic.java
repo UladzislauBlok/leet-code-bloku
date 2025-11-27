@@ -33,5 +33,6 @@ public enum Topic {
     LINKED_LIST,
     GRAPH,
     SHORTEST_PATH,
-    DIJKSTRA
+    DIJKSTRA,
+    KADANES_ALGORITHM
 }
