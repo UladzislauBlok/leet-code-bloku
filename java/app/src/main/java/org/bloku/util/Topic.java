@@ -34,5 +34,6 @@ public enum Topic {
     GRAPH,
     SHORTEST_PATH,
     DIJKSTRA,
-    KADANES_ALGORITHM
+    KADANES_ALGORITHM,
+    COMBINATORICS
 }
