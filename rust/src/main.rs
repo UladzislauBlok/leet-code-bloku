@@ -8,6 +8,7 @@ mod sol_3531;
 mod sol_3577;
 mod sol_3583;
 mod sol_417;
+mod sol_944;
 
 fn main() {
     println!("Hello, world!");
