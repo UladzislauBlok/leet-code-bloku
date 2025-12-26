@@ -20,6 +20,7 @@ public enum Topic {
     PREFIX_SUM,
     DYNAMIC_PROGRAMMING,
     STACK,
+    QUEUE,
     MATRIX,
     PROBABILITY,
     BACKTRACKING,
