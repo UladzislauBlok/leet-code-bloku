@@ -3,6 +3,7 @@ package org.bloku.util;
 public enum Topic {
     ARRAY,
     BINARY_SEARCH,
+    BINARY_TREE,
     SEGMENT_TREE,
     HASH_TABLE,
     MATH,
