@@ -17,7 +17,7 @@ impl Solution {
             .sum()
     }
 
-    pub fn min_time_to_visit_all_points_(points: Vec<Vec<i32>>) -> i32 {
+    pub fn min_time_to_visit_all_points__(points: Vec<Vec<i32>>) -> i32 {
         let mut res = 0;
         for window in points.windows(2) {
             res += (window[0][0] - window[1][0])
