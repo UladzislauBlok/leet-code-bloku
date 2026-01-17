@@ -7,6 +7,7 @@ mod sol_2110;
 mod sol_232;
 mod sol_2943;
 mod sol_2975;
+mod sol_3047;
 mod sol_3074;
 mod sol_3075;
 mod sol_3289;
