@@ -12,6 +12,7 @@ mod sol_3074;
 mod sol_3075;
 mod sol_3289;
 mod sol_3314;
+mod sol_3315;
 mod sol_3512;
 mod sol_3531;
 mod sol_3577;
