@@ -8,7 +8,7 @@ import org.bloku.util.Topics;
 @Topics({Topic.MATH})
 class Solution {
 
-    public long flowerGame(int n, int m) {
-        return ((long) n * m) / 2;
-    }
+  public long flowerGame(int n, int m) {
+    return ((long) n * m) / 2;
+  }
 }

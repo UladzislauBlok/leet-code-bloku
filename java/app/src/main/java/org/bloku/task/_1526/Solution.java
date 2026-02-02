@@ -9,15 +9,15 @@ import org.bloku.util.Topics;
 @Topics({ARRAY, DYNAMIC_PROGRAMMING, GREEDY})
 class Solution {
 
-    // kind of find rectangle
-    // there are three cases: next elem > prev; next elem < prev; next elem == prev
-    // only first one will affect number of required operations
-    public int minNumberOperations(int[] target) {
-        int res = 0, prev = 0;
-        for (int num : target) {
-            if (prev < num) res += num - prev;
-            prev = num;
-        }
-        return res;
+  // kind of find rectangle
+  // there are three cases: next elem > prev; next elem < prev; next elem == prev
+  // only first one will affect number of required operations
+  public int minNumberOperations(int[] target) {
+    int res = 0, prev = 0;
+    for (int num : target) {
+      if (prev < num) res += num - prev;
+      prev = num;
     }
+    return res;
+  }
 }

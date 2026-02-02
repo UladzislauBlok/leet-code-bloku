@@ -9,18 +9,18 @@ import org.bloku.util.Topics;
 @Topics({ARRAY, MATH, DYNAMIC_PROGRAMMING})
 class Solution {
 
-    public long getDescentPeriods(int[] prices) {
-        long res = 0;
-        int prev = -1, window = 0;
-        for (int price : prices) {
-            if (prev - 1 == price) {
-                window++;
-            } else {
-                window = 1;
-            }
-            res += window;
-            prev = price;
-        }
-        return res;
+  public long getDescentPeriods(int[] prices) {
+    long res = 0;
+    int prev = -1, window = 0;
+    for (int price : prices) {
+      if (prev - 1 == price) {
+        window++;
+      } else {
+        window = 1;
+      }
+      res += window;
+      prev = price;
     }
+    return res;
+  }
 }

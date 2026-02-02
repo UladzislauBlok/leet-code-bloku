@@ -1,40 +1,38 @@
 package org.bloku.task._2348;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.stream.Stream;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
 class SolutionTest {
 
-    private Solution solution;
+  private Solution solution;
 
-    @BeforeEach
-    public void setUp() {
-        this.solution = new Solution();
-    }
+  @BeforeEach
+  public void setUp() {
+    this.solution = new Solution();
+  }
 
-    @ParameterizedTest
-    @MethodSource
-    void solutionReturnsExpectedResult(int[] nums, long expected) {
-        // given
+  @ParameterizedTest
+  @MethodSource
+  void solutionReturnsExpectedResult(int[] nums, long expected) {
+    // given
 
-        // when
-        long actual = solution.zeroFilledSubarray(nums);
+    // when
+    long actual = solution.zeroFilledSubarray(nums);
 
-        // then
-        assertThat(actual).isEqualTo(expected);
-    }
+    // then
+    assertThat(actual).isEqualTo(expected);
+  }
 
-    static Stream<Arguments> solutionReturnsExpectedResult() {
-        return Stream.of(
-                Arguments.of(new int[]{1,3,0,0,2,0,0,4}, 6),
-                Arguments.of(new int[]{0,0,0,2,0,0}, 9),
-                Arguments.of(new int[]{2,10,2019}, 0)
-        );
-    }
+  static Stream<Arguments> solutionReturnsExpectedResult() {
+    return Stream.of(
+        Arguments.of(new int[] {1, 3, 0, 0, 2, 0, 0, 4}, 6),
+        Arguments.of(new int[] {0, 0, 0, 2, 0, 0}, 9),
+        Arguments.of(new int[] {2, 10, 2019}, 0));
+  }
 }

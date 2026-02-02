@@ -9,10 +9,10 @@ import org.bloku.util.Topics;
 @Topics({ARRAY, MATH})
 class Solution {
 
-    // this is about find closest num that is divisible by 3
-    public int minimumOperations(int[] nums) {
-        int count = 0;
-        for (int num : nums) count += num % 3 == 0 ? 0 : 1;
-        return count;
-    }
+  // this is about find closest num that is divisible by 3
+  public int minimumOperations(int[] nums) {
+    int count = 0;
+    for (int num : nums) count += num % 3 == 0 ? 0 : 1;
+    return count;
+  }
 }

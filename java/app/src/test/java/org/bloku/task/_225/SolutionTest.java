@@ -7,20 +7,20 @@ import org.junit.jupiter.api.Test;
 
 class SolutionTest {
 
-    private Solution.MyStack sut;
+  private Solution.MyStack sut;
 
-    @BeforeEach
-    public void setUp() {
-        this.sut = new Solution.MyStack();
-    }
+  @BeforeEach
+  public void setUp() {
+    this.sut = new Solution.MyStack();
+  }
 
-    @Test
-    void tc1() {
-        sut.push(1);
-        sut.push(2);
+  @Test
+  void tc1() {
+    sut.push(1);
+    sut.push(2);
 
-        assertThat(sut.top()).isEqualTo(2);
-        assertThat(sut.pop()).isEqualTo(2);
-        assertThat(sut.empty()).isFalse();
-    }
+    assertThat(sut.top()).isEqualTo(2);
+    assertThat(sut.pop()).isEqualTo(2);
+    assertThat(sut.empty()).isFalse();
+  }
 }

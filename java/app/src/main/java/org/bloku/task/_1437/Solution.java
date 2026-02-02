@@ -9,18 +9,18 @@ import org.bloku.util.Topics;
 @Topics({ARRAY})
 class Solution {
 
-    public boolean kLengthApart(int[] nums, int k) {
-        int count = 0;
-        boolean skip = true;
-        for (int num : nums) {
-            if (num == 0) {
-                count++;
-            } else {
-                if (count < k && !skip) return false;
-                count = 0;
-                skip = false;
-            }
-        }
-        return true;
+  public boolean kLengthApart(int[] nums, int k) {
+    int count = 0;
+    boolean skip = true;
+    for (int num : nums) {
+      if (num == 0) {
+        count++;
+      } else {
+        if (count < k && !skip) return false;
+        count = 0;
+        skip = false;
+      }
     }
+    return true;
+  }
 }

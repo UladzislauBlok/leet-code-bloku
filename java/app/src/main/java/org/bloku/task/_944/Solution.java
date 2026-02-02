@@ -9,20 +9,20 @@ import org.bloku.util.Topics;
 @Topics({ARRAY, STRING})
 class Solution {
 
-    public int minDeletionSize(String[] strs) {
-        int m = strs.length, n = strs[0].length();
-        int res = 0;
-        for (int i = 0; i < n; i++) {
-            char prev = ' ';
-            for (int j = 0; j < m; j++) {
-                char c = strs[j].charAt(i);
-                if (prev > c) {
-                    res++;
-                    break;
-                }
-                prev = c;
-            }
+  public int minDeletionSize(String[] strs) {
+    int m = strs.length, n = strs[0].length();
+    int res = 0;
+    for (int i = 0; i < n; i++) {
+      char prev = ' ';
+      for (int j = 0; j < m; j++) {
+        char c = strs[j].charAt(i);
+        if (prev > c) {
+          res++;
+          break;
         }
-        return res;
+        prev = c;
+      }
     }
+    return res;
+  }
 }

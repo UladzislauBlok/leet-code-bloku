@@ -1,5 +1,6 @@
 plugins {
-     application
+    application
+    id("com.diffplug.spotless") version "8.2.1"
 }
 
 repositories {
@@ -24,4 +25,10 @@ application {
 
 tasks.named<Test>("test") {
     useJUnitPlatform()
+}
+
+spotless {
+    java {
+        googleJavaFormat()
+    }
 }

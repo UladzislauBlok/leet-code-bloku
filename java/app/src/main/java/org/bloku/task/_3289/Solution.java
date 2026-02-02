@@ -9,20 +9,20 @@ import org.bloku.util.Topics;
 @Topics({ARRAY, HASH_TABLE})
 class Solution {
 
-    public int[] getSneakyNumbers(int[] nums) {
-        int n = nums.length;
-        int[] map = new int[n];
-        int[] res = new int[2];
-        res[0] = -1;
-        for (int num : nums) {
-            if (map[num]++ == 1) {
-                if (res[0] == -1) {
-                    res[0] = num;
-                } else {
-                    res[1] = num;
-                }
-            }
+  public int[] getSneakyNumbers(int[] nums) {
+    int n = nums.length;
+    int[] map = new int[n];
+    int[] res = new int[2];
+    res[0] = -1;
+    for (int num : nums) {
+      if (map[num]++ == 1) {
+        if (res[0] == -1) {
+          res[0] = num;
+        } else {
+          res[1] = num;
         }
-        return res;
+      }
     }
+    return res;
+  }
 }

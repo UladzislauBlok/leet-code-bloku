@@ -9,15 +9,15 @@ import org.bloku.util.Topics;
 @Topics({MATH, SIMULATION})
 class Solution {
 
-    public int numWaterBottles(int numBottles, int numExchange) {
-        int count = 0;
-        int rest = 0;
-        while (numBottles > 0) {
-            count += numBottles;
-            int curr = numBottles + rest;
-            numBottles = curr / numExchange;
-            rest = curr % numExchange;
-        }
-        return count;
+  public int numWaterBottles(int numBottles, int numExchange) {
+    int count = 0;
+    int rest = 0;
+    while (numBottles > 0) {
+      count += numBottles;
+      int curr = numBottles + rest;
+      numBottles = curr / numExchange;
+      rest = curr % numExchange;
     }
+    return count;
+  }
 }

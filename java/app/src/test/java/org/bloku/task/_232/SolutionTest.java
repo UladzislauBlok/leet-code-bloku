@@ -7,21 +7,21 @@ import org.junit.jupiter.api.Test;
 
 class SolutionTest {
 
-    private Solution.MyQueue sut;
+  private Solution.MyQueue sut;
 
-    @BeforeEach
-    public void setUp() {
-        this.sut = new Solution.MyQueue();
-    }
+  @BeforeEach
+  public void setUp() {
+    this.sut = new Solution.MyQueue();
+  }
 
-    @Test
-    void tc1() {
+  @Test
+  void tc1() {
 
-        sut.push(1);
-        sut.push(2);
+    sut.push(1);
+    sut.push(2);
 
-        assertThat(sut.peek()).isEqualTo(1);
-        assertThat(sut.pop()).isEqualTo(1);
-        assertThat(sut.empty()).isFalse();
-    }
+    assertThat(sut.peek()).isEqualTo(1);
+    assertThat(sut.pop()).isEqualTo(1);
+    assertThat(sut.empty()).isFalse();
+  }
 }

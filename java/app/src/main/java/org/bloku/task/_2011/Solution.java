@@ -9,12 +9,12 @@ import org.bloku.util.Topics;
 @Topics({ARRAY, STRING, SIMULATION})
 class Solution {
 
-    public int finalValueAfterOperations(String[] operations) {
-        int res = 0;
-        for (String operation : operations) {
-            if (operation.contains("+")) res++;
-            else res--;
-        }
-        return res;
+  public int finalValueAfterOperations(String[] operations) {
+    int res = 0;
+    for (String operation : operations) {
+      if (operation.contains("+")) res++;
+      else res--;
     }
+    return res;
+  }
 }

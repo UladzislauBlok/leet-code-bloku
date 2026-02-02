@@ -9,33 +9,33 @@ import org.bloku.util.Topics;
 @Topics({ARRAY, SIMULATION})
 class Solution {
 
-    private static final int PREV = -1000000;
+  private static final int PREV = -1000000;
 
-    public int minimumPairRemoval(int[] nums) {
-        int n = nums.length;
-        for (int i = 0; i < Integer.MAX_VALUE; i++) {
-            int prev = PREV, prevPos = -1, minSum = 100000;
-            int[] minPos = new int[2];
-            boolean good = true;
-            for (int j = 0; j < n; j++) {
-                int num = nums[j];
-                if (num == Integer.MIN_VALUE) continue;
-                if (prev != PREV) {
-                    int sum = prev + num;
-                    if (sum < minSum) {
-                        minPos[0] = prevPos;
-                        minPos[1] = j;
-                        minSum = sum;
-                    }
-                    if (num < nums[prevPos]) good = false;
-                }
-                prevPos = j;
-                prev = num;
-            }
-            if (good) return i;
-            nums[minPos[0]] = Integer.MIN_VALUE;
-            nums[minPos[1]] = minSum;
+  public int minimumPairRemoval(int[] nums) {
+    int n = nums.length;
+    for (int i = 0; i < Integer.MAX_VALUE; i++) {
+      int prev = PREV, prevPos = -1, minSum = 100000;
+      int[] minPos = new int[2];
+      boolean good = true;
+      for (int j = 0; j < n; j++) {
+        int num = nums[j];
+        if (num == Integer.MIN_VALUE) continue;
+        if (prev != PREV) {
+          int sum = prev + num;
+          if (sum < minSum) {
+            minPos[0] = prevPos;
+            minPos[1] = j;
+            minSum = sum;
+          }
+          if (num < nums[prevPos]) good = false;
         }
-        return -1;
+        prevPos = j;
+        prev = num;
+      }
+      if (good) return i;
+      nums[minPos[0]] = Integer.MIN_VALUE;
+      nums[minPos[1]] = minSum;
     }
+    return -1;
+  }
 }

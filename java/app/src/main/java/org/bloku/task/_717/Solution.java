@@ -9,16 +9,16 @@ import org.bloku.util.Topics;
 @Topics({ARRAY, DYNAMIC_PROGRAMMING})
 class Solution {
 
-    // we need to went through bits with the rule
-    // that bit 1 takes any char after
-    // check if last char is free
-    public boolean isOneBitCharacter(int[] bits) {
-        int n = bits.length;
-        boolean free = true;
-        for (int i = 0; i < n - 1; i++) {
-            if (bits[i] == 0) free = true;
-            else free = !free;
-        }
-        return free;
+  // we need to went through bits with the rule
+  // that bit 1 takes any char after
+  // check if last char is free
+  public boolean isOneBitCharacter(int[] bits) {
+    int n = bits.length;
+    boolean free = true;
+    for (int i = 0; i < n - 1; i++) {
+      if (bits[i] == 0) free = true;
+      else free = !free;
     }
+    return free;
+  }
 }

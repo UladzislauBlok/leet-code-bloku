@@ -9,12 +9,12 @@ import org.bloku.util.Topics;
 @Topics({ARRAY, HASH_TABLE})
 class Solution {
 
-    public int repeatedNTimes(int[] nums) {
-        boolean[] set = new boolean[10001];
-        for (int num : nums) {
-            if (set[num]) return num;
-            set[num] = true;
-        }
-        return -1;
+  public int repeatedNTimes(int[] nums) {
+    boolean[] set = new boolean[10001];
+    for (int num : nums) {
+      if (set[num]) return num;
+      set[num] = true;
     }
+    return -1;
+  }
 }
