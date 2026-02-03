@@ -20,6 +20,7 @@ mod sol_3512;
 mod sol_3531;
 mod sol_3577;
 mod sol_3583;
+mod sol_3637;
 mod sol_417;
 mod sol_66;
 mod sol_944;

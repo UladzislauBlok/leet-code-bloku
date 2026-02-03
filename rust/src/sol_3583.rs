@@ -4,7 +4,7 @@ use std::collections::HashMap;
 
 impl Solution {
     pub fn special_triplets_(nums: Vec<i32>) -> i32 {
-        let MOD = 1_000_000_007;
+        let r#mod = 1_000_000_007;
         let n = nums.len();
         let mut map: HashMap<usize, [u32; 2]> = HashMap::with_capacity(n);
         let max = *nums.iter().max().unwrap() as usize;
@@ -21,7 +21,7 @@ impl Solution {
             *f.entry(*num).or_insert(0) += 1;
         }
         let res: u64 = map.iter().map(|x| (x.1[0] * x.1[1]) as u64).sum();
-        (res % MOD) as i32
+        (res % r#mod) as i32
     }
 
     pub fn special_triplets(nums: Vec<i32>) -> i32 {

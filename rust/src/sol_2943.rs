@@ -2,8 +2,8 @@ struct Solution {}
 
 impl Solution {
     pub fn maximize_square_hole_area(
-        n: i32,
-        m: i32,
+        _n: i32,
+        _m: i32,
         mut h_bars: Vec<i32>,
         mut v_bars: Vec<i32>,
     ) -> i32 {
@@ -28,7 +28,7 @@ impl Solution {
     }
 
     // JSusi
-    pub fn maximize_square_hole_area_(n: i32, m: i32, h_bars: Vec<i32>, v_bars: Vec<i32>) -> i32 {
+    pub fn maximize_square_hole_area_(_n: i32, _m: i32, h_bars: Vec<i32>, v_bars: Vec<i32>) -> i32 {
         [h_bars, v_bars]
             .into_iter()
             .filter_map(|mut bars| {

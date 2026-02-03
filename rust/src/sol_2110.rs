@@ -19,9 +19,9 @@ impl Solution {
         let mut des = 0 as i64;
         let mut prev = -1;
         for x in prices {
-            let is_minus_1 = ((x + 1 == prev) as i64);
-            let mask = -isMinus1;
-            sum += ((!mask) & des * (des + 1) / 2);
+            let is_minus_1 = (x + 1 == prev) as i64;
+            let mask = -is_minus_1;
+            sum += (!mask) & des * (des + 1) / 2;
             des = (mask & des) + 1;
             prev = x;
         }
@@ -29,7 +29,7 @@ impl Solution {
         sum
     }
 
-    pub fn get_descent_periods(prices: Vec<i32>) -> i64 {
+    pub fn get_descent_periods_(prices: Vec<i32>) -> i64 {
         let (mut prev, mut window, mut res): (i32, i64, i64) = (-1, 0, 0);
         for num in prices.iter() {
             if prev - 1 == *num {

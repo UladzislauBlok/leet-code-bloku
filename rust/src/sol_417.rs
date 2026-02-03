@@ -48,7 +48,7 @@ impl Solution {
         let mut res: Vec<Vec<i32>> = vec![];
         for i in 0..n {
             for j in 0..m {
-                if (pacific[i][j] && atlantic[i][j]) {
+                if pacific[i][j] && atlantic[i][j] {
                     res.push(vec![i as i32, j as i32]);
                 }
             }
@@ -70,8 +70,8 @@ impl Solution {
         visited[i][j] = true;
         let directions: [i32; 5] = [-1, 0, 1, 0, -1];
         for k in 0..4 {
-            let a = (i as i32 + directions[k]);
-            let b = (j as i32 + directions[k + 1]);
+            let a = i as i32 + directions[k];
+            let b = j as i32 + directions[k + 1];
             if a < 0 || b < 0 || a == n as i32 || b == m as i32 {
                 continue;
             }

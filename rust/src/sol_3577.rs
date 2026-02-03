@@ -5,7 +5,7 @@ impl Solution {
         const MOD: u64 = 1_000_000_007;
         let n = complexity.len();
         for i in 1..n {
-            if (complexity[i] <= complexity[0]) {
+            if complexity[i] <= complexity[0] {
                 return 0;
             }
         }
