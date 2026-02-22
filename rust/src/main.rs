@@ -29,6 +29,7 @@ mod sol_67;
 mod sol_693;
 mod sol_761;
 mod sol_762;
+mod sol_868;
 mod sol_944;
 mod sol_961;
 
