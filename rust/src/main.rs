@@ -1,5 +1,7 @@
+mod sol_1022;
 mod sol_1200;
 mod sol_1266;
+mod sol_1356;
 mod sol_1461;
 mod sol_1523;
 mod sol_1526;
