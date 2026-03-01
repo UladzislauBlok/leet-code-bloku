@@ -5,6 +5,7 @@ mod sol_1356;
 mod sol_1461;
 mod sol_1523;
 mod sol_1526;
+mod sol_1689;
 mod sol_1877;
 mod sol_190;
 mod sol_1975;
