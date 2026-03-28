@@ -8,9 +8,6 @@ repositories {
 }
 
 dependencies {
-    testImplementation(libs.junit.jupiter)
-    testImplementation(libs.assertj)
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 java {
@@ -21,10 +18,6 @@ java {
 
 application {
     mainClass = "org.bloku.App"
-}
-
-tasks.named<Test>("test") {
-    useJUnitPlatform()
 }
 
 spotless {

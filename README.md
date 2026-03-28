@@ -1,1 +1,1 @@
-Java solutions is mine, but rust / cpp not always ;)
+LeetCode and fun

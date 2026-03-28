@@ -3,8 +3,6 @@
 # Store the project directory name.
 TASK_NUM="$1"
 SRC_DIR="java/app/src/main/java/org/bloku/task/_$TASK_NUM"
-TEST_DIR="java/app/src/test/java/org/bloku/task/_$TASK_NUM"
-RUST_DIR="rust/src"
 
 # Create the main project directory and subdirectories.
 mkdir -p "$SRC_DIR"
@@ -12,16 +10,9 @@ if [ $? -ne 0 ]; then
     echo "Error: Failed to create source directory '$SRC_DIR'."
     exit 1
 fi
-mkdir -p "$TEST_DIR"
-if [ $? -ne 0 ]; then
-    echo "Error: Failed to create test directory '$TEST_DIR'."
-    exit 1
-fi
 
 # Define the source and test file names.
 SRC_FILE_NAME="Solution.java"
-TEST_FILE_NAME="SolutionTest.java"
-RUST_FILE_NAME="sol_$TASK_NUM.rs"
 
 # --- Create the source file (Solution.java) ---
 SRC_PATH="$SRC_DIR/$SRC_FILE_NAME"
@@ -52,80 +43,3 @@ EOF
         echo "An error occurred while creating the file '$SRC_PATH'."
     fi
 fi
-
-# --- Create the test file (SolutionTest.java) ---
-TEST_PATH="$TEST_DIR/$TEST_FILE_NAME"
-if [ -f "$TEST_PATH" ]; then
-    echo "Warning: The file '$TEST_PATH' already exists. Skipping."
-else
-    cat <<'EOF' >"$TEST_PATH"
-package org.bloku.task.TODO;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.stream.Stream;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
-class SolutionTest {
-
-    private Solution solution;
-
-    @BeforeEach
-    public void setUp() {
-        this.solution = new Solution();
-    }
-
-    @ParameterizedTest
-    @MethodSource
-    void solutionReturnsExpectedResult(int expected) {
-        // given
-
-        // when
-        int actual = solution.f();
-
-        // then
-        assertThat(actual).isEqualTo(expected);
-    }
-
-    static Stream<Arguments> solutionReturnsExpectedResult() {
-        return Stream.of(
-                Arguments.of(10),
-                Arguments.of(4)
-        );
-    }
-}
-
-EOF
-    if [ $? -eq 0 ]; then
-        echo "Successfully created '$TEST_PATH' with the template content."
-    else
-        echo "An error occurred while creating the file '$TEST_PATH'."
-    fi
-fi
-
-RUST_PATH="$RUST_DIR/$RUST_FILE_NAME"
-if [ -f "$RUST_PATH" ]; then
-    echo "Warning: The file '$RUST_PATH' already exists. Skipping."
-else
-    cat <<'EOF' >"$RUST_PATH"
-struct Solution {}
-
-impl Solution {
-    pub fn tbd() {
-        
-    }
-}
-
-EOF
-    if [ $? -eq 0 ]; then
-        echo "Successfully created '$RUST_PATH' with the template content."
-    else
-        echo "An error occurred while creating the file '$RUST_PATH'."
-    fi
-fi
-
-echo "Done."
