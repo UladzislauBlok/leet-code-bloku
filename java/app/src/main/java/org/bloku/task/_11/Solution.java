@@ -12,7 +12,7 @@ class Solution {
   // here two things are important: height and length
   // we can use two pointer
   // start on left and right side
-  // move one pointer with smallest height
+  // move one pointer with the smallest height
   // check if curr res is more than prev
   public int maxArea(int[] height) {
     int left = 0, right = height.length - 1;

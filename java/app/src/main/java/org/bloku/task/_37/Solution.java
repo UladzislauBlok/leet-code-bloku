@@ -15,7 +15,7 @@ class Solution {
   private boolean[][] cols = new boolean[9][10];
   private boolean[][] boxes = new boolean[9][10];
 
-  // size is 9x9, we can try to brut force it
+  // size is 9x9, we can try to brute force it
   public void solveSudoku(char[][] board) {
     this.board = board;
     for (int i = 0; i < 9; i++) {
