@@ -14,12 +14,12 @@ import org.bloku.util.Topics;
 class Solution {
 
   // It's kind of finding path
-  // 1) The find optiomal path we can choose the ceil
-  // with min value and explore path in kind of bfs maner
+  // 1) The find optimal path we can choose the cell
+  // with min value and explore path in kind of bfs manner
   // n is max 50, so even O(n^2*log n) should do just fine
-  // the final result would be the biggest cail along the path
-  // 2) For second approach we can try to perform full with checking
-  // if we we can achive better results
+  // the final result would be the biggest cell along the path
+  // 2) For second approach we can try to perform full of checking
+  // if we can achieve better results
   // 3) dfs with binary search
   public int swimInWater(int[][] grid) {
     int n = grid.length;
