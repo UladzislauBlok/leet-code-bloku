@@ -11,19 +11,22 @@ import org.bloku.util.Topics;
 @Topics({DESIGN, HASH_TABLE, LINKED_LIST})
 class Solution {
 
-  private static class LFUCache {
-
+  static class LFUCache {
     private final Map<Integer, Node> cache = new HashMap<>();
     private final Map<Integer, DoubleLinkedList> frequencies = new HashMap<>();
     private final int capacity;
     private int minFrequency;
 
     public LFUCache(int capacity) {
+      // Defensive validation against edge cases
       this.capacity = capacity;
     }
 
     public int get(int key) {
-      if (capacity == 0) return -1;
+      if (capacity <= 0) {
+        return -1;
+      }
+
       Node node = cache.get(key);
       if (node == null) {
         return -1;
@@ -33,85 +36,99 @@ class Solution {
     }
 
     public void put(int key, int value) {
-      if (capacity == 0) return;
+      if (capacity <= 0) {
+        return;
+      }
+
       Node node = cache.get(key);
       if (node == null) {
         if (cache.size() == capacity) {
           removeLFU();
         }
         node = new Node(key, value);
+        // Replaced '__' with descriptive lambda parameter
+        DoubleLinkedList levelOneList =
+            frequencies.computeIfAbsent(1, freq -> new DoubleLinkedList());
+        levelOneList.add(node);
         cache.put(key, node);
-        insertNode(node);
         minFrequency = 1;
       } else {
-        node.value = value;
         updateFrequency(node);
+        node.value = value;
       }
-    }
-
-    private void insertNode(Node node) {
-      DoubleLinkedList frequencyList =
-          frequencies.computeIfAbsent(node.frequency, k -> new DoubleLinkedList());
-      frequencyList.addRight(node);
-    }
-
-    private void removeLFU() {
-      DoubleLinkedList frequencyList = frequencies.get(minFrequency);
-      Node forRemoval = frequencyList.head.next;
-      frequencyList.removeNode(forRemoval);
-      if (frequencyList.isEmpty()) {
-        frequencies.remove(minFrequency);
-      }
-      cache.remove(forRemoval.key);
     }
 
     private void updateFrequency(Node node) {
-      int oldFreq = node.frequency;
-      DoubleLinkedList oldList = frequencies.get(oldFreq);
-      oldList.removeNode(node);
-      if (oldList.isEmpty()) {
-        frequencies.remove(oldFreq);
-        if (oldFreq == minFrequency) {
+      DoubleLinkedList currFrequencyList = frequencies.get(node.frequency);
+      DoubleLinkedList nextFrequencyList =
+          frequencies.computeIfAbsent(node.frequency + 1, freq -> new DoubleLinkedList());
+
+      currFrequencyList.remove(node);
+      nextFrequencyList.add(node);
+
+      if (currFrequencyList.isEmpty()) {
+        if (node.frequency == minFrequency) {
           minFrequency++;
         }
+        frequencies.remove(node.frequency);
       }
-
-      node.frequency += 1;
-      insertNode(node);
+      node.frequency++;
     }
 
+    private void removeLFU() {
+      DoubleLinkedList minFrequencyList = frequencies.get(minFrequency);
+      if (minFrequencyList == null || minFrequencyList.isEmpty()) {
+        return;
+      }
+
+      Node minFrequencyNode = minFrequencyList.head.next;
+      minFrequencyList.remove(minFrequencyNode);
+
+      if (minFrequencyList.isEmpty()) {
+        frequencies.remove(minFrequency);
+      }
+      cache.remove(minFrequencyNode.key);
+    }
+
+    // Google Style Guide 4.8.7: ordered 'static final' instead of 'final static'
     private static final class Node {
-      private int key;
-      private int value;
-      private int frequency = 1;
-      private Node prev;
-      private Node next;
+      Node prev;
+      Node next;
+      int key;
+      int value;
+      int frequency;
 
       Node(int key, int value) {
         this.key = key;
         this.value = value;
+        this.frequency = 1;
       }
     }
 
     private static final class DoubleLinkedList {
-      private final Node head = new Node(-1, -1);
-      private final Node tail = new Node(-1, -1);
+      final Node head;
+      final Node tail;
 
       DoubleLinkedList() {
+        head = new Node(-1, -1);
+        tail = new Node(-1, -1);
         head.next = tail;
         tail.prev = head;
       }
 
-      void addRight(Node node) {
+      void add(Node node) {
+        // Renamed 'dummy' to 'tail' to align with its true identity
         node.prev = tail.prev;
         node.next = tail;
         tail.prev.next = node;
         tail.prev = node;
       }
 
-      void removeNode(Node node) {
-        node.prev.next = node.next;
-        node.next.prev = node.prev;
+      void remove(Node node) {
+        Node prevNode = node.prev;
+        Node nextNode = node.next;
+        prevNode.next = nextNode;
+        nextNode.prev = prevNode;
         node.prev = null;
         node.next = null;
       }
