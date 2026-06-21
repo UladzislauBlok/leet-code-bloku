@@ -45,4 +45,5 @@ public enum Topic {
   GEOMETRY,
   TOPOLOGICAL_SORT,
   INTERVALS,
+  RING_BUFFER,
 }
